@@ -59,7 +59,6 @@ class ComplexNumberTest extends Specification {
         then:
         result.x == x1 + x2
         result.y == y1 + y2
-
     }
 
     def "test minus"() {
@@ -81,7 +80,6 @@ class ComplexNumberTest extends Specification {
         then:
         result.x == x1 - x2
         result.y == y1 - y2
-
     }
 
     def "test multiply"() {
@@ -102,28 +100,20 @@ class ComplexNumberTest extends Specification {
 
         then:
         result == new ComplexNumber(-3.782, -5.99)
-
     }
-    
-        def "test divide by zero"() {
+
+    def "test divide by zero"() {
         given:
         double x1 = 1.55
         double y1 = -2.23
 
         and:
-        double x2 = 5.332
-        double y2 = 3.76
-
-        and:
         ComplexNumber cn1 = new ComplexNumber(x1, y1)
 
         when:
-        ComplexNumber result = cn1 / ComplexNumber.ZERO
+        cn1 / ComplexNumber.ZERO
 
         then:
         thrown(IllegalStateException)
-
     }
-    
-    
 }
