@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/groovy-operators-overloading.svg?branch=master)](https://travis-ci.com/mtumilowicz/groovy-operators-overloading)
+
 # groovy-operators-overloading
 Easy example of operators overloading in groovy.
 
