@@ -5,6 +5,8 @@ import groovy.transform.Immutable
  */
 @Immutable
 class ComplexNumber {
+    public final static ZERO = new ComplexNumber(0, 0)
+    
     double x
     double y
 
@@ -24,6 +26,10 @@ class ComplexNumber {
 
     ComplexNumber multiply(ComplexNumber other) {
         new ComplexNumber(this.x * other.x - this.y * other.y, this.x * other.y + this.y * other.x)
+    }
+
+    ComplexNumber div(ComplexNumber other) {
+        this.multiply(other.reciprocal())
     }
 
     ComplexNumber reciprocal() {

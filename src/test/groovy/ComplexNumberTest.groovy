@@ -18,8 +18,8 @@ class ComplexNumberTest extends Specification {
         xValue == 1.55
         yValue == -2.23
     }
-    
-        def "decomposition - too many projections"() {
+
+    def "decomposition - too many projections"() {
         given:
         def x = 1.55
         def y = -2.23
@@ -61,4 +61,69 @@ class ComplexNumberTest extends Specification {
         result.y == y1 + y2
 
     }
+
+    def "test minus"() {
+        given:
+        double x1 = 1.55
+        double y1 = -2.23
+
+        and:
+        double x2 = 5.332
+        double y2 = 3.76
+
+        and:
+        ComplexNumber cn1 = new ComplexNumber(x1, y1)
+        ComplexNumber cn2 = new ComplexNumber(x2, y2)
+
+        when:
+        ComplexNumber result = cn1 - cn2
+
+        then:
+        result.x == x1 - x2
+        result.y == y1 - y2
+
+    }
+
+    def "test multiply"() {
+        given:
+        double x1 = 1.55
+        double y1 = -2.23
+
+        and:
+        double x2 = 5.332
+        double y2 = 3.76
+
+        and:
+        ComplexNumber cn1 = new ComplexNumber(x1, y1)
+        ComplexNumber cn2 = new ComplexNumber(x2, y2)
+
+        when:
+        ComplexNumber result = cn1 - cn2
+
+        then:
+        result == new ComplexNumber(-3.782, -5.99)
+
+    }
+    
+        def "test divide by zero"() {
+        given:
+        double x1 = 1.55
+        double y1 = -2.23
+
+        and:
+        double x2 = 5.332
+        double y2 = 3.76
+
+        and:
+        ComplexNumber cn1 = new ComplexNumber(x1, y1)
+
+        when:
+        ComplexNumber result = cn1 / ComplexNumber.ZERO
+
+        then:
+        thrown(IllegalStateException)
+
+    }
+    
+    
 }
