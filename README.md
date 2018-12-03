@@ -3,7 +3,8 @@
 # groovy-operators-overloading
 Easy example of operators overloading in groovy.
 
-_Reference_: http://groovy-lang.org/operators.html#Operator-Overloading
+_Reference_: http://groovy-lang.org/operators.html#Operator-Overloading  
+_Reference_: https://en.wikipedia.org/wiki/Complex_number
 
 # preface
 Groovy allows you to overload the various operators so 
