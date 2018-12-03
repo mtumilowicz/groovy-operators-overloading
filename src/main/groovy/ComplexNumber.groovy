@@ -29,7 +29,7 @@ class ComplexNumber {
     }
 
     ComplexNumber div(ComplexNumber other) {
-        this.multiply(other.reciprocal())
+        this * other.reciprocal()
     }
 
     ComplexNumber reciprocal() {
