@@ -11,7 +11,7 @@ class ComplexNumber {
     double getAt(int idx) {
         if (idx == 0) x
         else if (idx == 1) y
-        else throw new Exception("Wrong coordinate index, use 0 or 1")
+        else throw new IllegalArgumentException("Wrong coordinate index, use 0 or 1")
     }
 
     ComplexNumber plus(ComplexNumber other) {
@@ -33,7 +33,7 @@ class ComplexNumber {
 
         def radius = this.x**2 + this.y**2
 
-        new ComplexNumber(this.x / radius, - this.y / radius)
+        new ComplexNumber(this.x / radius, -this.y / radius)
     }
 
     @Override

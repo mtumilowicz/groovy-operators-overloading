@@ -18,6 +18,19 @@ class ComplexNumberTest extends Specification {
         xValue == 1.55
         yValue == -2.23
     }
+    
+        def "decomposition - too many projections"() {
+        given:
+        def x = 1.55
+        def y = -2.23
+        ComplexNumber complexNumber = new ComplexNumber(x, y)
+
+        when:
+        def (xValue, yValue, zValue) = complexNumber
+
+        then:
+        thrown(IllegalArgumentException)
+    }
 
     def "test toString"() {
         given:
