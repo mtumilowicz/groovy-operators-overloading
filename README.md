@@ -29,3 +29,57 @@ support on the right hand side of the operator.
 |^   |a.xor(b)   |+a   |a.positive()   |
 |as   |a.asType(b)   |-a   |a.negative()   |
 |a()   |a.call()   |~a   |a.bitwiseNegate()   |
+
+# project description
+We provide `ComplexNumber` (equivalent to a point) 
+class with overloaded operators:
+* `+`
+    ```
+    ComplexNumber plus(ComplexNumber other) {
+        new ComplexNumber(this.x + other.x, this.y + other.y)
+    }
+    ```
+* `-`
+    ```
+    ComplexNumber minus(ComplexNumber other) {
+        new ComplexNumber(this.x - other.x, this.y - other.y)
+    }
+    ```
+* `*`
+    ```
+    ComplexNumber multiply(ComplexNumber other) {
+        new ComplexNumber(this.x * other.x - this.y * other.y, this.x * other.y + this.y * other.x)
+    }
+    ```
+* `/`
+    ```
+    ComplexNumber div(ComplexNumber other) {
+        this * other.reciprocal()
+    }
+    ```
+* `a[b]`
+    ```
+    double getAt(int idx) {
+        if (idx == 0) x
+        else if (idx == 1) y
+        else throw new IllegalArgumentException("Wrong coordinate index, use 0 or 1")
+    }
+    ```
+    * `a[0] == x`
+    * `a[1] == y`
+    * `a[>1] -> IllegalArgumentException`
+    so you could decompose `ComplexNumber` to a 
+    point:
+        ```
+        given:
+        def x = 1.55
+        def y = -2.23
+        ComplexNumber complexNumber = new ComplexNumber(x, y)
+        
+        when:
+        def (xValue, yValue) = complexNumber
+        
+        then:
+        xValue == 1.55
+        yValue == -2.23
+        ```
